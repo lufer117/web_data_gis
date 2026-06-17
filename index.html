@@ -10,7 +10,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+
+<body class="is-preload">
 
 <nav id="navbar">
   <div class="nav-logo">Luisa Fernanda</div>
@@ -23,7 +24,7 @@
       <li><a href="#contacto">Contacto</a></li>
     </ul>
     <div class="lang-select" title="Idioma">
-      <span class="lang-flag">🇪🇸</span>
+      <!-- <span class="lang-flag">🇪🇸</span> -->
       <span>ES</span>
       <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="1.8"><polyline points="2,3 5,7 8,3"/></svg>
       <select aria-label="Seleccionar idioma" id="langSelector">
@@ -46,7 +47,7 @@
 </section>
 
 <section id="sobre-mi">
-  <div class="about-grid">
+  <div class="container about-grid">
     <div class="about-left reveal">
       <h2 class="section-title">Sobre mi</h2>
       <p class="about-subtitle">Soy Luisa Fernanda. MSc.</p>
@@ -71,16 +72,16 @@
     <div class="about-right reveal">
       <img
         class="about-photo-main"
-        src="https://static.wixstatic.com/media/d767a4_73cf8588eb8a473c80103f73e6453118~mv2.jpg/v1/fill/w_600,h_800,al_c,q_80/d767a4_73cf8588eb8a473c80103f73e6453118~mv2.jpg"
+        src="images/foto-perfil.jpg"
         alt="Luisa Fernanda Bolívar — foto de perfil"
         loading="lazy"
       />
-      <img
+      <!-- <img
         class="about-photo-accent"
         src="https://static.wixstatic.com/media/d767a4_4808fd9a08a14a4a972e4a9606063c52~mv2.jpg/v1/fill/w_300,h_200,al_c,q_80/d767a4_4808fd9a08a14a4a972e4a9606063c52~mv2.jpg"
         alt=""
         loading="lazy"
-      />
+      /> -->
     </div>
   </div>
 </section>
@@ -88,7 +89,7 @@
 <section id="stats">
   <div class="stats-grid">
     <div class="stat-card reveal">
-      <div class="stat-num">9 +</div>
+      <div class="stat-num">2 +</div>
       <div class="stat-label">Años de experiencia</div>
     </div>
     <div class="stat-card reveal">
@@ -106,9 +107,10 @@
   </div>
 </section>
 
-<section id="lo-que-hago">
+<section id="te-ayudo">
+  <div class="container texto-centrado">
   <div class="services-intro reveal">
-    <h2 class="section-title">Lo que hago</h2>
+    <h2 class="section-title">¿En qué te ayudo?</h2>
     <p class="section-body">
       <strong>Analista de Datos</strong> en desarrollo, con experiencia previa en consultoría. Trabajo con <strong>datos cuantitativos y cualitativos</strong>, desde bases sencillas hasta entornos de Big Data, para apoyar la toma de decisiones.<br><br>
       Trabajo con distintas herramientas y plataformas según las necesidades de cada proyecto, participando en etapas como exploración, limpieza/preparación, transformación, análisis y visualización. Me enfoco en convertir información en métricas claras, reportes y dashboards útiles para negocio y gestión.<br><br>
@@ -117,10 +119,11 @@
   </div>
 
   <div class="triptych">
+    <!-- <div class="container"> -->
     <div class="triptych-card reveal">
       <img
         class="triptych-img"
-        src="https://static.wixstatic.com/media/d767a4_cf035d78834743068d8498314a80abf8~mv2.jpg/v1/fill/w_600,h_450,al_c,q_80/d767a4_cf035d78834743068d8498314a80abf8~mv2.jpg"
+        src="images/home_trip_1.png"
         alt="Análisis y gestión de datos"
         loading="lazy"
       />
@@ -141,7 +144,7 @@
     <div class="triptych-card reveal">
       <img
         class="triptych-img"
-        src="https://static.wixstatic.com/media/d767a4_a2bdb88b10c5483eb8e3afe7eb014745~mv2.jpg/v1/fill/w_600,h_450,al_c,q_80/d767a4_a2bdb88b10c5483eb8e3afe7eb014745~mv2.jpg"
+        src="images/home_trip_2.png"
         alt="Análisis sectoriales"
         loading="lazy"
       />
@@ -161,7 +164,7 @@
     <div class="triptych-card reveal">
       <img
         class="triptych-img"
-        src="https://static.wixstatic.com/media/d767a4_0d65ae24fb63423b81ef624f413c1f11~mv2.jpg/v1/fill/w_600,h_450,al_c,q_80/d767a4_0d65ae24fb63423b81ef624f413c1f11~mv2.jpg"
+        src="images/home_trip_3.png"
         alt="Analítica espacial"
         loading="lazy"
       />
@@ -182,48 +185,59 @@
 </section>
 
 <section id="colaboraciones">
+  
   <h2 class="section-title reveal">Colaboraciones</h2>
-  <div class="marquee-track">
+  <p class="collab-intro reveal">
+      He participado en proyectos multidisciplinarios que combinan tratamiento y explotación de datos, análisis técnico y su visualización, adaptándome a distintas plataformas y entornos según los objetivos de cada equipo o cliente. También he incorporado tecnologías emergentes, como inteligencia artificial y procesamiento espacial, para enriquecer el análisis y aportar una mirada más estratégica.
+    </p>
     <div class="marquee-inner">
       <div class="collab-logo-wrap">
-        <img class="collab-logo" src="https://static.wixstatic.com/media/d767a4_24c16a0fa098407d8c719baf56a0b378~mv2.jpg/v1/fit/w_300,h_160/d767a4_24c16a0fa098407d8c719baf56a0b378~mv2.jpg" alt="Ingeprol · Ecopetrol · Lehit" loading="lazy" />
+        <img class="collab-logo" src="images/ingeprol.JPG" alt="Ingeprol · Ecopetrol · Lehit" loading="lazy" />
       </div>
       <div class="collab-logo-wrap">
-        <img class="collab-logo" src="https://static.wixstatic.com/media/d767a4_830a9df9bb1149f1917ee5dc9554f55f~mv2.jpg/v1/fit/w_300,h_160/d767a4_830a9df9bb1149f1917ee5dc9554f55f~mv2.jpg" alt="Ecosimple · UPME · Minambiente · Empopasto" loading="lazy" />
+        <img class="collab-logo" src="images/Ecosimple.jpg" alt="Ecosimple · UPME · Minambiente · Empopasto" loading="lazy" />
       </div>
       <div class="collab-logo-wrap">
-        <img class="collab-logo" src="https://static.wixstatic.com/media/d767a4_1463dd03faae4d6192f4c809066198b1~mv2.jpg/v1/fit/w_300,h_160/d767a4_1463dd03faae4d6192f4c809066198b1~mv2.jpg" alt="Proyectamos Colombia · Agencia Nacional Seguridad Vial" loading="lazy" />
+        <img class="collab-logo" src="images/Proyectamos.JPG" alt="Proyectamos Colombia · Agencia Nacional Seguridad Vial" loading="lazy" />
       </div>
       <div class="collab-logo-wrap">
-        <img class="collab-logo" src="https://static.wixstatic.com/media/d767a4_319474f834fd499bae5ca537a2222ff3~mv2.png/v1/fit/w_300,h_160/d767a4_319474f834fd499bae5ca537a2222ff3~mv2.png" alt="Shopper behavior data" loading="lazy" />
+        <img class="collab-logo" src="images/shopper.png" alt="Shopper behavior data" loading="lazy" />
       </div>
-      <div class="collab-placeholder">Logo 5</div>
-      <div class="collab-placeholder">Logo 6</div>
-      <div class="collab-placeholder">Logo 7</div>
+    
+      <div class="collab-logo-wrap">
+        <img class="collab-logo" src="images/teknidata.JPG" alt="" loading="lazy" aria-hidden="true" />
+      </div>
+      <div class="collab-logo-wrap">
+        <img class="collab-logo" src="images/ingeprol.JPG" alt="" loading="lazy" aria-hidden="true" />
+      </div>
+      <div class="collab-logo-wrap">
+        <img class="collab-logo" src="images/Ecosimple.jpg" alt="" loading="lazy" aria-hidden="true" />
+      </div>
+      <div class="collab-logo-wrap">
+        <img class="collab-logo" src="images/Informetrics.JPG" alt="" loading="lazy" aria-hidden="true" />
+      </div>
+      <div class="collab-logo-wrap">
+        <img class="collab-logo" src="images/Proyectamos.JPG" alt="Proyectamos Colombia · Agencia Nacional Seguridad Vial" loading="lazy" />
+      </div>
+      <div class="collab-logo-wrap">
+        <img class="collab-logo" src="images/shopper.png" alt="Shopper behavior data" loading="lazy" />
+      </div>
+    
+      <div class="collab-logo-wrap">
+        <img class="collab-logo" src="images/teknidata.JPG" alt="" loading="lazy" aria-hidden="true" />
+      </div>
 
-      <div class="collab-logo-wrap">
-        <img class="collab-logo" src="https://static.wixstatic.com/media/d767a4_24c16a0fa098407d8c719baf56a0b378~mv2.jpg/v1/fit/w_300,h_160/d767a4_24c16a0fa098407d8c719baf56a0b378~mv2.jpg" alt="" loading="lazy" aria-hidden="true" />
-      </div>
-      <div class="collab-logo-wrap">
-        <img class="collab-logo" src="https://static.wixstatic.com/media/d767a4_830a9df9bb1149f1917ee5dc9554f55f~mv2.jpg/v1/fit/w_300,h_160/d767a4_830a9df9bb1149f1917ee5dc9554f55f~mv2.jpg" alt="" loading="lazy" aria-hidden="true" />
-      </div>
-      <div class="collab-logo-wrap">
-        <img class="collab-logo" src="https://static.wixstatic.com/media/d767a4_1463dd03faae4d6192f4c809066198b1~mv2.jpg/v1/fit/w_300,h_160/d767a4_1463dd03faae4d6192f4c809066198b1~mv2.jpg" alt="" loading="lazy" aria-hidden="true" />
-      </div>
-      <div class="collab-logo-wrap">
-        <img class="collab-logo" src="https://static.wixstatic.com/media/d767a4_319474f834fd499bae5ca537a2222ff3~mv2.png/v1/fit/w_300,h_160/d767a4_319474f834fd499bae5ca537a2222ff3~mv2.png" alt="" loading="lazy" aria-hidden="true" />
-      </div>
-      <div class="collab-placeholder" aria-hidden="true">Logo 5</div>
-      <div class="collab-placeholder" aria-hidden="true">Logo 6</div>
-      <div class="collab-placeholder" aria-hidden="true">Logo 7</div>
     </div>
   </div>
 </section>
 
 <footer id="contacto">
   <div class="footer-inner">
+  <!-- <div class="footer-logo">
+    <img src="images/bylufer_morado.png" alt="Logo Luisa Fernanda">
+  </div>  -->
+  <div class="footer-logo-text">Luisa Fernanda</div>
     <div class="footer-left">
-      <div class="footer-logo-text">Luisa Fernanda</div>
       <ul class="footer-nav">
         <li><a href="#hero">Inicio</a></li>
         <li><a href="#sobre-mi">Sobre mi</a></li>

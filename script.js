@@ -1,5 +1,13 @@
 document.addEventListener("DOMContentLoaded", function() {
   
+  // --- NUEVO: Animación inicial tipo Spectral ---
+  setTimeout(function() {
+    document.body.classList.remove('is-preload');
+  }, 100);
+  // ----------------------------------------------
+
+  // 1. Scroll reveal (animación de entrada)
+  // ... el resto de tu código que ya tienes ...
   // 1. Scroll reveal (animación de entrada)
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {
