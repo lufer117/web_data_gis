@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proyectos — Luisa Fernanda | Data Analyst · GIS</title>
+  <meta name="description" content="Portafolio de proyectos de análisis de datos, machine learning, analítica espacial y dashboards." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    /* ═══════════════════════════════════════
+       PROYECTOS — estilos específicos de esta página
+       ═══════════════════════════════════════ */
+
+    /* ── Hero ── */
+    .proy-hero {
+      min-height: 38vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 160px 5vw 70px;
+      background: linear-gradient(135deg, rgba(2,49,94,0.88), rgba(128,100,145,0.82)), url('../images/proyectos_hero.jpg') center/cover no-repeat;
+    }
+    .proy-hero-eyebrow {
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em;
+      text-transform: uppercase; color: rgba(255,255,255,0.7); margin-bottom: 0.8rem;
+    }
+    .proy-hero-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 5vw, 3rem); font-weight: 700;
+      color: #fff; line-height: 1.15; margin-bottom: 0.8rem;
+    }
+    .proy-hero-sub {
+      font-size: 1rem; color: rgba(255,255,255,0.85);
+      max-width: 480px; margin: 0 auto; line-height: 1.6;
+    }
+
+    /* ── Intro ── */
+    .proy-intro { padding: 5rem 5vw; }
+    .proy-intro-text {
+      max-width: 680px; margin: 0 auto;
+      font-size: 0.97rem; line-height: 1.8; color: var(--text-dark);
+    }
+
+    /* ── Filtro de categorías ── */
+    .proy-filters {
+      display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;
+      max-width: 700px; margin: 0 auto 3rem;
+    }
+    .proy-filter {
+      display: inline-block;
+      padding: 0.45rem 1.1rem;
+      border: 1px solid rgba(128,100,145,0.28);
+      border-radius: 20px;
+      font-size: 0.75rem; font-weight: 500;
+      color: var(--purple);
+      background: transparent;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+      font-family: var(--sans);
+      letter-spacing: 0.03em;
+    }
+    .proy-filter:hover,
+    .proy-filter.active {
+      background: var(--purple);
+      color: #fff;
+      border-color: var(--purple);
+    }
+
+    /* ── Grid de proyectos ── */
+    .proy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .proy-card {
+      background: var(--white);
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 2px 14px rgba(128,100,145,0.06);
+      transition: box-shadow 0.25s, transform 0.2s;
+      display: flex; flex-direction: column;
+    }
+    .proy-card:hover {
+      box-shadow: 0 8px 30px rgba(128,100,145,0.13);
+      transform: translateY(-3px);
+    }
+    .proy-card-img {
+      width: 100%;
+      aspect-ratio: 16/10;
+      object-fit: cover;
+      display: block;
+    }
+    .proy-card-body {
+      padding: 1.4rem 1.3rem 1.5rem;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .proy-card-cat {
+      font-size: 0.65rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--teal); margin-bottom: 0.5rem;
+    }
+    .proy-card-title {
+      font-family: var(--serif);
+      font-size: 1.05rem; font-weight: 700;
+      color: var(--purple);
+      line-height: 1.25; margin-bottom: 0.5rem;
+    }
+    .proy-card-desc {
+      font-size: 0.84rem; color: #555;
+      line-height: 1.6; margin-bottom: 1rem;
+      flex: 1;
+    }
+    .proy-card-tags {
+      display: flex; flex-wrap: wrap; gap: 0.3rem;
+      margin-bottom: 1rem;
+    }
+    .proy-card-tag {
+      font-size: 0.62rem; font-weight: 600;
+      letter-spacing: 0.07em; text-transform: uppercase;
+      padding: 0.18rem 0.5rem;
+      border: 1px solid rgba(128,100,145,0.25);
+      color: var(--purple);
+      border-radius: 2px;
+    }
+    .proy-card-link {
+      font-size: 0.78rem; font-weight: 600;
+      color: var(--teal);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.2s;
+      margin-top: auto;
+    }
+    .proy-card-link:hover { color: var(--purple); }
+
+    /* ── CTA ── */
+    .proy-cta {
+      padding: 4rem 5vw;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .proy-grid { grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+      .proy-hero { min-height: 30vh; padding: 140px 5vw 50px; }
+    }
+    @media (max-width: 580px) {
+      .proy-grid { grid-template-columns: 1fr; max-width: 420px; }
+      .proy-hero-title { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+
+<body class="is-preload">
+
+<nav id="navbar">
+  <div class="nav-logo">Luisa Fernanda</div>
+  <div class="nav-right">
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../">Inicio</a></li>
+      <li><a href="../sobremi/">Sobre mi</a></li>
+      <li><a href="../servicios/">Servicios</a></li>
+      <li><a href="../proyectos/" class="active">Proyectos</a></li>
+      <li><a href="https://85944478-ba45-48b2-b9d4-920b23eec399.filesusr.com/ugd/d767a4_0eafc25b8b7340abb71ace5b3f8cf896.pdf" target="_blank">Curriculum</a></li>
+      <li><a href="../contacto/">Contacto</a></li>
+    </ul>
+    <div class="lang-select" title="Idioma">
+      <span>ES</span>
+      <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="1.8"><polyline points="2,3 5,7 8,3"/></svg>
+      <select aria-label="Seleccionar idioma" id="langSelector">
+        <option value="es">ES</option>
+        <option value="en">EN</option>
+      </select>
+    </div>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="proy-hero">
+  <div class="reveal">
+    <p class="proy-hero-eyebrow">Portafolio</p>
+    <h1 class="proy-hero-title">Proyectos</h1>
+    <p class="proy-hero-sub">
+      Una selección de trabajos donde los datos se convierten en decisiones.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════ INTRO ═══════════════ -->
+<section class="proy-intro section-base">
+  <div class="container texto-centrado reveal">
+    <h2 class="section-title">Lo que he construido</h2>
+    <p class="proy-intro-text">
+      Cada proyecto representa un desafío distinto: desde modelos predictivos y segmentación satelital 
+      hasta dashboards para retail y análisis sectoriales para políticas públicas. 
+      <strong>Todos comparten un mismo enfoque: datos bien trabajados, preguntas claras y resultados accionables.</strong>
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════ FILTROS ═══════════════ -->
+<section class="section-light" style="padding:1rem 5vw 3rem;">
+  <div class="proy-filters reveal">
+    <button class="proy-filter active" data-filter="todos">Todos</button>
+    <button class="proy-filter" data-filter="bigdata">Big Data & ML</button>
+    <button class="proy-filter" data-filter="sectorial">Análisis Sectorial</button>
+    <button class="proy-filter" data-filter="retail">Retail & Dashboards</button>
+  </div>
+
+  <!-- ═══════════════ GRID ═══════════════ -->
+  <div class="proy-grid">
+
+    <!-- ────────── 1 ────────── -->
+    <article class="proy-card reveal" data-cat="bigdata">
+      <img class="proy-card-img" src="../images/proy_banking.jpg" alt="Banking Marketing Campaigns" loading="lazy" />
+      <div class="proy-card-body">
+        <span class="proy-card-cat">Big Data & ML</span>
+        <h3 class="proy-card-title">Predicting Success in Banking Marketing</h3>
+        <p class="proy-card-desc">Modelo de clasificación supervisada para predecir la suscripción de un producto financiero tras campañas de telemarketing.</p>
+        <div class="proy-card-tags">
+          <span class="proy-card-tag">Python</span>
+          <span class="proy-card-tag">ML</span>
+        </div>
+        <a href="https://famous-sponge-c54.notion.site/Projects-2d236a8670838072b4cde9dd2624d538" target="_blank" class="proy-card-link">Ver en Notion →</a>
+      </div>
+    </article>
+
+    <!-- ────────── 2 ────────── -->
+    <article class="proy-card reveal" data-cat="bigdata">
+      <img class="proy-card-img" src="../images/proy_carprices.jpg" alt="Used Car Prices ML" loading="lazy" />
+      <div class="proy-card-body">
+        <span class="proy-card-cat">Big Data & ML</span>
+        <h3 class="proy-card-title">Predicting Used Car Prices</h3>
+        <p class="proy-card-desc">Estimación del precio de venta de coches usados mediante un modelo de regresión entrenado con datos históricos y características técnicas.</p>
+        <div class="proy-card-tags">
+          <span class="proy-card-tag">Python</span>
+          <span class="proy-card-tag">ML</span>
+        </div>
+        <a href="https://famous-sponge-c54.notion.site/Projects-2d236a8670838072b4cde9dd2624d538" target="_blank" class="proy-card-link">Ver en Notion →</a>
+      </div>
+    </article>
+
+    <!-- ────────── 3 ────────── -->
+    <article class="proy-card reveal" data-cat="bigdata">
+      <img class="proy-card-img" src="../images/proy_kmeans.jpg" alt="Segmentación Satelital" loading="lazy" />
+      <div class="proy-card-body">
+        <span class="proy-card-cat">Big Data & ML</span>
+        <h3 class="proy-card-title">Segmentación de Imágenes Satelitales con K-Means</h3>
+        <p class="proy-card-desc">Aplicación de clustering no supervisado a imágenes satelitales para analizar cambios de cobertura del suelo a lo largo del tiempo.</p>
+        <div class="proy-card-tags">
+          <span class="proy-card-tag">Python</span>
+          <span class="proy-card-tag">GEE</span>
+          <span class="proy-card-tag">Colab</span>
+        </div>
+        <a href="https://famous-sponge-c54.notion.site/Projects-2d236a8670838072b4cde9dd2624d538" target="_blank" class="proy-card-link">Ver en Notion →</a>
+      </div>
+    </article>
+
+    <!-- ────────── 4 ────────── -->
+    <article class="proy-card reveal" data-cat="bigdata">
+      <img class="proy-card-img" src="../images/proy_deforestation.jpg" alt="Deforestation Analysis" loading="lazy" />
+      <div class="proy-card-body">
+        <span class="proy-card-cat">Big Data & ML</span>
+        <h3 class="proy-card-title">Deforestation Analysis</h3>
+        <p class="proy-card-desc">Análisis de cambios en la vegetación usando Python e imágenes satelitales para evaluar la dinámica de cobertura del suelo.</p>
+        <div class="proy-card-tags">
+          <span class="proy-card-tag">Python</span>
+          <span class="proy-card-tag">GEE</span>
+          <span class="proy-card-tag">Colab</span>
+        </div>
+        <a href="https://famous-sponge-c54.notion.site/Projects-2d236a8670838072b4cde9dd2624d538" target="_blank" class="proy-card-link">Ver en Notion →</a>
+      </div>
+    </article>
+
+    <!-- ────────── 5 ────────── -->
+    <article class="proy-card reveal" data-cat="bigdata">
+      <img class="proy-card-img" src="../images/proy_hydrological.jpg" alt="Monitoreo Hidrológico" loading="lazy" />
+      <div class="proy-card-body">
+        <span class="proy-card-cat">Big Data & ML</span>
+        <h3 class="proy-card-title">Hydrological Monitoring with Big Data</h3>
+        <p class="proy-card-desc">Análisis satelital de cambios en extensión, batimetría y volumen de una laguna, incluyendo GIFs animados y modelos 3D.</p>
+        <div class="proy-card-tags">
+          <span class="proy-card-tag">Python</span>
+          <span class="proy-card-tag">GEE</span>
+          <span class="proy-card-tag">Colab</span>
+        </div>
+        <a href="https://famous-sponge-c54.notion.site/Projects-2d236a8670838072b4cde9dd2624d538" target="_blank" class="proy-card-link">Ver en Notion →</a>
+      </div>
+    </article>
+
+    <!-- ────────── 6 ────────── -->
+    <article class="proy-card reveal" data-cat="sectorial">
+      <img class="proy-card-img" src="../images/proy_segvial.jpg" alt="Encuesta Seguridad Vial" loading="lazy" />
+      <div class="proy-card-body">
+        <span class="proy-card-cat">Análisis Sectorial</span>
+        <h3 class="proy-card-title">Percepción de Seguridad Vial</h3>
+        <p class="proy-card-desc">Encuesta ciudadana para medir la percepción sobre seguridad vial, con análisis estadístico y visualización de resultados.</p>
+        <div class="proy-card-tags">
+          <span class="proy-card-tag">Excel</span>
+          <span class="proy-card-tag">PowerPoint</span>
+        </div>
+        <a href="https://famous-sponge-c54.notion.site/Projects-2d236a8670838072b4cde9dd2624d538" target="_blank" class="proy-card-link">Ver en Notion →</a>
+      </div>
+    </article>
+
+    <!-- ────────── 7 ────────── -->
+    <article class="proy-card reveal" data-cat="sectorial">
+      <img class="proy-card-img" src="../images/proy_pine.jpg" alt="Impactos PINE" loading="lazy" />
+      <div class="proy-card-body">
+        <span class="proy-card-cat">Análisis Sectorial</span>
+        <h3 class="proy-card-title">Impactos Socioeconómicos PINE</h3>
+        <p class="proy-card-desc">Análisis de escenarios futuros para cinco Proyectos de Interés Nacional y Estratégico con fuentes secundarias y entrevistas a expertos.</p>
+        <div class="proy-card-tags">
+          <span class="proy-card-tag">Excel</span>
+          <span class="proy-card-tag">PowerPoint</span>
+        </div>
+        <a href="https://famous-sponge-c54.notion.site/Projects-2d236a8670838072b4cde9dd2624d538" target="_blank" class="proy-card-link">Ver en Notion →</a>
+      </div>
+    </article>
+
+    <!-- ────────── 8 ────────── -->
+    <article class="proy-card reveal" data-cat="sectorial">
+      <img class="proy-card-img" src="../images/proy_lifeexp.jpg" alt="Esperanza de Vida" loading="lazy" />
+      <div class="proy-card-body">
+        <span class="proy-card-cat">Análisis Sectorial</span>
+        <h3 class="proy-card-title">Contexto Económico y Esperanza de Vida</h3>
+        <p class="proy-card-desc">Análisis de cómo el contexto económico impacta los niveles de esperanza de vida en distintos países, con visualización en Power BI.</p>
+        <div class="proy-card-tags">
+          <span class="proy-card-tag">Power BI</span>
+          <span class="proy-card-tag">Excel</span>
+        </div>
+        <a href="https://famous-sponge-c54.notion.site/Projects-2d236a8670838072b4cde9dd2624d538" target="_blank" class="proy-card-link">Ver en Notion →</a>
+      </div>
+    </article>
+
+    <!-- ────────── 9 ────────── -->
+    <article class="proy-card reveal" data-cat="sectorial">
+      <img class="proy-card-img" src="../images/proy_airbnb.jpg" alt="Airbnb Satisfacción" loading="lazy" />
+      <div class="proy-card-body">
+        <span class="proy-card-cat">Análisis Sectorial</span>
+        <h3 class="proy-card-title">Factores de Satisfacción en Airbnb</h3>
+        <p class="proy-card-desc">Visualización de datos para explorar los factores que influyen en la satisfacción de usuarios, usando Excel y Tableau.</p>
+        <div class="proy-card-tags">
+          <span class="proy-card-tag">Tableau</span>
+          <span class="proy-card-tag">Excel</span>
+        </div>
+        <a href="https://famous-sponge-c54.notion.site/Projects-2d236a8670838072b4cde9dd2624d538" target="_blank" class="proy-card-link">Ver en Notion →</a>
+      </div>
+    </article>
+
+    <!-- ────────── 10 ────────── -->
+    <article class="proy-card reveal" data-cat="retail">
+      <img class="proy-card-img" src="../images/proy_retail_engagement.jpg" alt="Engagement Retail" loading="lazy" />
+      <div class="proy-card-body">
+        <span class="proy-card-cat">Retail & Dashboards</span>
+        <h3 class="proy-card-title">Engagement y Disponibilidad en Retail</h3>
+        <p class="proy-card-desc">Análisis de engagement de clientes y disponibilidad de productos usando Python en Colab, con reporte ejecutivo en Google Slides.</p>
+        <div class="proy-card-tags">
+          <span class="proy-card-tag">Python</span>
+          <span class="proy-card-tag">Google Sheets</span>
+          <span class="proy-card-tag">Slides</span>
+        </div>
+        <a href="https://famous-sponge-c54.notion.site/Projects-2d236a8670838072b4cde9dd2624d538" target="_blank" class="proy-card-link">Ver en Notion →</a>
+      </div>
+    </article>
+
+    <!-- ────────── 11 ────────── -->
+    <article class="proy-card reveal" data-cat="retail">
+      <img class="proy-card-img" src="../images/proy_marketplace.jpg" alt="Tráfico Marketplace" loading="lazy" />
+      <div class="proy-card-body">
+        <span class="proy-card-cat">Retail & Dashboards</span>
+        <h3 class="proy-card-title">Análisis de Tráfico en Marketplace</h3>
+        <p class="proy-card-desc">Relación entre tráfico y búsquedas online, identificando patrones por zona y horario. Dashboard en Looker Studio.</p>
+        <div class="proy-card-tags">
+          <span class="proy-card-tag">Looker Studio</span>
+          <span class="proy-card-tag">Google Sheets</span>
+          <span class="proy-card-tag">Slides</span>
+        </div>
+        <a href="https://famous-sponge-c54.notion.site/Projects-2d236a8670838072b4cde9dd2624d538" target="_blank" class="proy-card-link">Ver en Notion →</a>
+      </div>
+    </article>
+
+    <!-- ────────── 12 ────────── -->
+    <article class="proy-card reveal" data-cat="retail">
+      <img class="proy-card-img" src="../images/proy_pantallas.jpg" alt="Pantallas Digitales" loading="lazy" />
+      <div class="proy-card-body">
+        <span class="proy-card-cat">Retail & Dashboards</span>
+        <h3 class="proy-card-title">Impacto de Pantallas Digitales en Tienda</h3>
+        <p class="proy-card-desc">Análisis de exposición e impacto de anuncios en pantallas digitales dentro de tiendas, con dashboard en Looker Studio.</p>
+        <div class="proy-card-tags">
+          <span class="proy-card-tag">Looker Studio</span>
+          <span class="proy-card-tag">Slides</span>
+        </div>
+        <a href="https://famous-sponge-c54.notion.site/Projects-2d236a8670838072b4cde9dd2624d538" target="_blank" class="proy-card-link">Ver en Notion →</a>
+      </div>
+    </article>
+
+    <!-- ────────── 13 ────────── -->
+    <article class="proy-card reveal" data-cat="retail">
+      <img class="proy-card-img" src="../images/proy_sensores.jpg" alt="Sensores Café" loading="lazy" />
+      <div class="proy-card-body">
+        <span class="proy-card-cat">Retail & Dashboards</span>
+        <h3 class="proy-card-title">Sensores Autónomos en Tienda de Café</h3>
+        <p class="proy-card-desc">Análisis de datos de sensores de dispositivo autónomo: patrones de tráfico, comportamiento de usuarios y correlaciones con variables externas.</p>
+        <div class="proy-card-tags">
+          <span class="proy-card-tag">Looker Studio</span>
+          <span class="proy-card-tag">Google Sheets</span>
+          <span class="proy-card-tag">Slides</span>
+        </div>
+        <a href="https://famous-sponge-c54.notion.site/Projects-2d236a8670838072b4cde9dd2624d538" target="_blank" class="proy-card-link">Ver en Notion →</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ═══════════════ CTA ═══════════════ -->
+<section class="proy-cta cta-section section-base">
+  <div class="cta-inner reveal">
+    <h2 class="cta-title">¿Tienes un proyecto en mente?</h2>
+    <p class="cta-text">Hablemos de cómo puedo ayudarte a convertir tus datos en decisiones.</p>
+    <div class="cta-btns">
+      <a href="../contacto/" class="btn-primary">Contáctame</a>
+      <a href="https://famous-sponge-c54.notion.site/Projects-2d236a8670838072b4cde9dd2624d538" target="_blank" class="btn-outline-dark">Ver todos en Notion</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo-text">Luisa Fernanda</div>
+    <div class="footer-left">
+      <ul class="footer-nav">
+        <li><a href="../">Inicio</a></li>
+        <li><a href="../sobremi/">Sobre mi</a></li>
+        <li><a href="../servicios/">Servicios</a></li>
+        <li><a href="../proyectos/">Proyectos</a></li>
+        <li><a href="https://85944478-ba45-48b2-b9d4-920b23eec399.filesusr.com/ugd/d767a4_0eafc25b8b7340abb71ace5b3f8cf896.pdf" target="_blank">Curriculum</a></li>
+      </ul>
+    </div>
+    <div class="footer-right">
+      <div class="footer-contact-row">
+        <div class="footer-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        WhatsApp <a href="https://wa.me/573108155024" target="_blank">wa.me/573108155024</a>
+      </div>
+      <div class="footer-contact-row">
+        <div class="footer-icon"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+        <a href="https://www.linkedin.com/in/luisafernandabolivararteaga" target="_blank">LinkedIn</a>
+      </div>
+      <div class="footer-contact-row">
+        <div class="footer-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 5.53 5.53l.87-.87a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.04z"/></svg></div>
+        <a href="tel:+34643425339">+ 34 643 425 339</a>
+      </div>
+      <div class="footer-contact-row">
+        <div class="footer-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <a href="/cdn-cgi/l/email-protection#dfbbb2beb6b3f1b1b0b0b89fb8b2beb6b3f1bcb0b2"><span class="__cf_email__">[email&#160;protected]</span></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2025 Luisa Fernanda Bolívar Arteaga — Data Analyst · GIS</div>
+</footer>
+
+<!-- ═══════════════ JS: Filtros ═══════════════ -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // Scroll reveal
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.reveal').forEach(function(el) { io.observe(el); });
+
+  // Mobile menu
+  var navbar = document.getElementById('navbar');
+  var hamburger = document.getElementById('hamburger');
+  hamburger.addEventListener('click', function() { navbar.classList.toggle('menu-open'); });
+  document.querySelectorAll('.nav-links a').forEach(function(a) {
+    a.addEventListener('click', function() { navbar.classList.remove('menu-open'); });
+  });
+
+  // Filtros de proyectos
+  var filters = document.querySelectorAll('.proy-filter');
+  var cards = document.querySelectorAll('.proy-card');
+
+  filters.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      filters.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      var cat = btn.getAttribute('data-filter');
+
+      cards.forEach(function(card) {
+        if (cat === 'todos' || card.getAttribute('data-cat') === cat) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+});
+</script>
+</body>
+</html>
